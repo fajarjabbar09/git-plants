@@ -1,6 +1,8 @@
  fajar 
-
 jabbar
+
+
+
 question 5 (NA)
 question 29 (NA)
 question 40 & 41 (discuss)
