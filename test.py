@@ -19,7 +19,7 @@
 
 # Q1. Print the message:  Hello, I am learning Python!
 # YOUR CODE HERE
-print("Hello, I am learning Python")
+print("Hello, I am learning Python!")
 
 # Q2. Python uses indentation to define blocks.
 #     The code below has an indentation error. Fix it.
@@ -40,7 +40,7 @@ print("Python", end ="")
 print("Rocks")
 
 # Q5. Use print() with sep argument to produce:  one | two | three
-print("one", "two", "three", sep="???")   # <-- replace ??? with correct separator
+print("one", "two", "three", sep=" | ")   # <-- replace ??? with correct separator
 
 
 print("\n--- Section 1: Syntax & Output done ---\n")
@@ -81,7 +81,7 @@ age = int(22)
 
 # Q11. Create variable  is_intern  and set it to True.
 # YOUR CODE HERE
-is_intern ="True"
+is_intern = True
 
 # Q12. Print all three variables on separate lines.
 # YOUR CODE HERE
@@ -108,7 +108,7 @@ print(Color)
 # Q16. Without running it, what error would this cause?  print(city)
 #      Write the error name as a comment.
 # YOUR CODE HERE  (example format:  # NameError)
-# variable city not present
+# NameError
 
 # Q17. Use  del  to delete variable  y  from Q13, then print "y deleted".
 # YOUR CODE HERE
@@ -202,6 +202,7 @@ print(type(hu))
 # Q26. Create complex number  c = 3 + 5j  and print it with its type.
 # YOUR CODE HERE
 comp = 3 + 5j
+print(comp)
 print(type(comp))
 
 # Q27. Print the absolute value of  -456  using abs()
@@ -217,7 +218,8 @@ print(pow(2,8))
 #      a) Print square root of 144
 #      b) Print math.pi rounded to 4 decimal places
 import math 
-
+math.sqrt(144)
+round(math.pi, 4)
 
 # YOUR CODE HERE
 
@@ -295,7 +297,7 @@ print(sentence[10 :20])
 
 # Q41. Print sentence REVERSED using slicing  [::-1]
 # YOUR CODE HERE
-print(sentence[::1])
+print(sentence[::-1])
 
 # Q42. Replace "Amazing" with "Awesome" and print the result.
 # YOUR CODE HERE
@@ -311,8 +313,8 @@ print("Java" not in sentence)
 
 # Q45. Split sentence into a list of words and print the list.
 # YOUR CODE HERE
-for split in sentence :
- print(split)
+output = sentence.split()
+print(output)
 
 # Q46. Strip whitespace from this string and print clean version:
 padded = "     Hello Fajar!     "
@@ -340,7 +342,8 @@ print(line)
 
 # Q51. Use .format() to print the same sentence as Q50.
 # YOUR CODE HERE
-print(line.format())
+line = "My name is {} and I am {} years old. ".format(first_name,age)
+print(line)
 
 # Q52. Concatenate first + second and print result:
 first = "Hello"
@@ -357,7 +360,7 @@ print(output)
 # Q54. Repeat "Ha" five times using the * operator.
 # YOUR CODE HERE  → expected output: HaHaHaHaHa
 repeat = "Ha"
-
+print(repeat*5)
 # Q55. Check if sentence STARTS WITH "Python". Print True or False.
 # YOUR CODE HERE
 print(sentence.startswith("Python"))
@@ -372,15 +375,20 @@ print(sentence.title())
 
 # Q58. Use swapcase() on "hELLO wORLD" and print the result.
 # YOUR CODE HERE
-print(output.swapcase())
+print("hELLO wORLD".swapcase())
 
 # Q59. Use center(60, "-") to center the text "PASS" in a 60-character line.
 # YOUR CODE HERE
-
-
+#text = "PASS"
+#print(text.center(60,"-"))
+print("PASS".center(60,"-"))
 # Q60. Write a MULTILINE string (triple quotes) with 3 lines of text and print it.
 # YOUR CODE HERE
-
+thr = """
+this is the first line
+this is second 
+and this is the third one\n"""
+print(thr)
 print("--- Section 7: Strings done ---\n")
 
 
@@ -402,13 +410,17 @@ print("--- Section 7: Strings done ---\n")
 # -----------------------------------------------
 
 # YOUR CODE HERE
-Name = str(input("Name :"))
-birth_year = int(input("Age in 2026 :"))
-favourite_number = float(input("Favourite number:"))
+Name = str(input("Name:"))
+birth_year = int(input("Birth year:"))
+favourite_number = float(input("Favourite number: "))
+current_year = 2026
+current_age = current_year - birth_year
+print("\n")
 print(Name)
-print(birth_year)
+print("Age in 2026:", current_age)
 print(favourite_number)
 print("Types:", type(Name),type(birth_year), type(favourite_number))
+#------------OR-------------
 #print("Types:" , end="")
 #print(type(Name),end="")
 #print(type(birth_year),end="")
