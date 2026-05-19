@@ -35,7 +35,7 @@ a = 10 > 5
 b = 10 == 5
 c = 10 < 5
 d = "hello" == "hello"
-e = "hello" == "hello"
+e = "hello" == "Hello"
 print(a)
 print(b)
 print(c)
@@ -59,25 +59,38 @@ c = bool("")
 d = bool("Python")
 e = bool([])
 f = bool([1, 2, 3])
-f = bool(None)
+g = bool(None)
 print(a)
 print(b)
 print(c)
 print(d)
 print(e)
 print(f)
+print(g)
+print("\n")
+
 
 # Q4. Create a variable  score = 75
 #     Print whether score is greater than or equal to 50  (True/False)
 # YOUR CODE HERE
 
+
 score = 75
 print(score >= 50)
+print("\n")
+
 
 # Q5. isinstance() returns a bool. Use it to:
 #     a) Check if  3.14  is a float  → print True/False
 #     b) Check if  "hello"  is an int  → print True/False
 # YOUR CODE HERE
+
+
+a = isinstance(3.14,float)
+b = isinstance("hello",int)
+print(a)
+print(b)
+print("\n")
 
 
 print("--- Section 1: Booleans done ---\n")
@@ -94,6 +107,7 @@ b = 4
 # Q6. Print results of:  a+b,  a-b,  a*b,  a/b,  a//b,  a%b,  a**b
 # YOUR CODE HERE
 
+
 print(a + b)
 print(a - b)
 print(a * b)
@@ -101,6 +115,7 @@ print(a / b)
 print(a // b)
 print(a % b)
 print(a ** b)
+print("\n")
 
 # --- Comparison Operators ---
 # Q7. Print results of:
@@ -128,11 +143,13 @@ print("\n")
 #     d)  not (a > 10)
 # YOUR CODE HERE
 
+
 print(a > 10 and b > 2)
 print(a > 10 and b > 10)
 print(a > 10 or b > 10)
 print(not (a > 10))
 print("\n")
+
 
 # --- Assignment Operators ---
 # Q9. Start with  n = 100
@@ -143,6 +160,7 @@ print("\n")
 #     e) Use  **=  to raise to power 2, print n
 #     f) Use  %=  with 7, print n
 # YOUR CODE HERE
+
 
 n = 100
 n += 20
@@ -159,6 +177,7 @@ n %= 7
 print(n)
 print("\n")
 
+
 # --- Identity Operators ---
 # Q10. x = ["apple"]   y = ["apple"]   z = x
 #      a) Print  x is z        → should be True  (same object)
@@ -166,12 +185,15 @@ print("\n")
 #      c) Print  x is not y    → should be True
 # YOUR CODE HERE
 
+
 x = ["apple"]
 y = ["apple"]
 z = x
 print(x is z)
 print(x is y)
 print(x is not y)
+print("\n")
+
 
 # --- Membership Operators ---
 # Q11. fruits = ["mango", "banana", "apple"]
@@ -180,17 +202,20 @@ print(x is not y)
 #      c) Print  "grape" not in fruits
 # YOUR CODE HERE
 
+
 fruits = ["mango", "banana", "apple"]
 print("mango" in fruits)
 print("grape" in fruits)
 print("grape" not in fruits)
 print("\n")
 
+
 # --- Bitwise Operators ---
 # Q12. p = 6   q = 3
 #      Print results of:  p & q,  p | q,  p ^ q,  ~p,  p << 1,  p >> 1
 #      (just print the numbers — no need to explain binary)
 # YOUR CODE HERE
+
 
 p = 6
 q = 3
@@ -200,6 +225,7 @@ print(p ^ q)
 print(~p)
 print(p << 1)
 print(p >> 1)
+
 
 print("--- Section 2: Operators done ---\n")
 
@@ -226,12 +252,13 @@ print(cities[0])
  
 
 print(cities[-1])
+
  
 # Q16. Print cities from index 1 to 3 (slicing).
 # YOUR CODE HERE
 
 
-print(cities[1:3])
+print(cities[1:4])
 
 
 # Q17. Change the second city (index 1) to "Lahore".
@@ -277,8 +304,8 @@ print(cities)
 # YOUR CODE HERE
 
 
-cities.pop(-1)
-print(cities)
+print(cities.pop())
+
 
 # Q23. Use  pop(0)  to remove the FIRST item and print what was removed.
 # YOUR CODE HERE
@@ -382,8 +409,7 @@ print(colors[-1])
 
 
 # colors[1] = "pink"
-# tuple not changeable(no item assignment)
-# tuples are not changeable it needs to be first change into a list and then changed
+# tuple cannot be reassigned
 
 
 # Q35. Print the length of  colors  using len().
@@ -405,7 +431,7 @@ counts_tuple = ("blue", "red", "blue", "green", "blue")
 # YOUR CODE HERE
 
 
-print(colors.count("blue"))
+print(counts_tuple.count("blue"))
 
 
 # Q38. Find the index of "green" in  counts_tuple.
@@ -436,6 +462,7 @@ print(z)
 c = list(colors)
 c.append("purple")
 colors = tuple(c)
+print(colors)
 
 
 # Q41. Create a SINGLE-ITEM tuple  single = ("only",)
@@ -491,6 +518,7 @@ team_a.add("Eve")
 
 
 team_a.add("Bob")
+# Sets do not allow duplicate values
 print(team_a)
 
 
@@ -508,6 +536,7 @@ print(team_a)
 
 
 print(team_a.discard("Zara"))
+print(team_a)
 
 
 # Q49. Create  team_b = {"Charlie", "Diana", "Frank", "Grace"}
@@ -530,6 +559,7 @@ print(teams_union)
 
 
 teams_inter = team_a.intersection(team_b)
+print(teams_inter)
 
 
 # Q52. Print the DIFFERENCE  team_a - team_b  (in a but not in b).
@@ -537,28 +567,31 @@ teams_inter = team_a.intersection(team_b)
 
 
 teams_diff = team_a.difference(team_b)
-
+print(teams_diff)
 
 # Q53. Print the SYMMETRIC DIFFERENCE  (members in either team, but NOT both).
 # YOUR CODE HERE
 
 
 teams_symm_diff = team_a.symmetric_difference(team_b)
+print(teams_symm_diff)
 
 
 # Q54. Check if  {"Diana"}  is a SUBSET of  team_a.  Print True or False.
 # YOUR CODE HERE
 
-
+print({"Diana"}.issubset(team_a))
 
 
 # Q55. Convert the list  [1, 2, 2, 3, 3, 3, 4]  to a set to remove duplicates.
 #      Print the result.
 # YOUR CODE HERE
 
+
 list = [1, 2, 2, 3, 3, 3, 4]
 List = set(list)
 print(List)
+
 
 print("--- Section 5: Sets done ---\n")
 
@@ -629,14 +662,14 @@ print(d)
 # YOUR CODE HERE
 
 
-d = student.values()
+print(student.values())
 
 
 # Q64. Print ALL key-value pairs using  .items()
 # YOUR CODE HERE
 
 
-d = student.items()
+print(student.items())
 
 
 # Q65. Check if  "age"  exists as a key in  student.  Print True or False.
@@ -668,17 +701,15 @@ print("\n")
 # YOUR CODE HERE
 
 
-for d in student.items():
-    print(d)
+for key, value in student.items():
+    print(f"{key} : {value}")
 
 
 # Q69. Use  pop("is_intern")  to remove that key and print what was returned.
 # YOUR CODE HERE
 
 
-d = student.pop("is_intern")
-print(student)
-
+print(student.pop("is_intern"))
 
 # Q70. Create a NESTED dictionary  company  like this structure:
 #      company = {
@@ -702,12 +733,12 @@ company = {
     "location" : "Lahore",
     "department": {
         "name" : "Data Center",
-        "employee" : 10
+        "employees" : 10
     }
     }
 print(company["name"])
 print(company["department"]["name"])
-print(company["department"]["employee"])
+print(company["department"]["employees"])
 
 
 
@@ -719,8 +750,8 @@ print(company["department"]["employee"])
 
 student_backup = student.copy()
 student["age"] = 99
-print(student)
-print(student_backup)
+print(student["age"])
+print(student_backup["age"])
 
 
 
@@ -765,21 +796,27 @@ print("--- Section 6: Dictionaries done ---\n")
 #   - Use an f-string for formatting
 
 # YOUR CODE HERE
-Report = {
+report = {
     "name" : "Fajar",
     "subjects": ["Math", "Science", "English"],
     "marks" : (80 , 45, 72)
     }
-Report["passed"] = {
-        subjects for subjects, marks in zip(Report["subjects"], Report["marks"]) 
+report["passed"] = {
+        subjects for subjects, marks in zip(report["subjects"], report["marks"]) 
         if marks >= 50
     }
     
-average = sum(Report["marks"])/ len(Report["marks"])
+average = sum(report["marks"])/ len(report["marks"])
+
+print("="*34)
 print("     Student Report")
-print(f"Name      : {Report["name"]}")
-print(f"Subjects  : {",".join(Report["subjects"])}")
-print(f"Marks     : ")
-print(f"Passed    : {Report["passed"]}")
+print("="*34)
+print(f"Name      : {report["name"]}")
+print(f"Subjects  : {", ".join(report["subjects"])}")
+print(f"Marks     : {",".join(map(str,report["marks"]))}")
+print(f"Passed    : {report["passed"]}")
 print(f"Average   : {average:.2f}")
+print("="*34)
+
+
 print("=== All done! Great work Fajar! ===")
