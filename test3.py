@@ -22,6 +22,14 @@
 # YOUR CODE HERE
 
 
+
+temperature = 38
+if temperature > 37:
+    print("Fever detected!")
+else:
+    print("Temperature is normal.")
+
+
 # Q2. Create variable  score = 72
 #     Print the grade using these rules:
 #       90 and above → "A"
@@ -33,9 +41,35 @@
 # YOUR CODE HERE
 
 
+
+score = 72
+if score >= 90:
+    print("A")
+elif score >= 80:
+    print("B")
+elif score >= 70:
+    print("C")
+elif score >= 60:
+    print("D")
+else:
+    print("E")
+
+
+
 # Q3. Create  num = -7
 #     Print whether num is: "Positive", "Negative", or "Zero"
 # YOUR CODE HERE
+
+
+
+num = -7
+if num > 0:
+    print("Positive")
+elif num < 0:
+    print("Negative")
+else:
+    ("Zero")
+
 
 
 # Q4. Create  age = 20  and  has_id = True
@@ -44,10 +78,26 @@
 # YOUR CODE HERE
 
 
+
+age = 20
+has_id = True
+if age >= 18 and has_id == True:
+    print("Entry allowed")
+
+else:
+    print("Entry denied")
+
+
+
 # Q5. Create  x = 15
 #     Write this as a ONE-LINE if-else (ternary):
 #     If x > 10 print "Big", else print "Small"
 # YOUR CODE HERE
+
+
+x = 15
+print("Big") if x > 10 else print("Small")
+
 
 
 # Q6. Nested if — Create  logged_in = True  and  is_admin = False
@@ -56,6 +106,19 @@
 #         Else:         print "Welcome, User!"
 #     Else:             print "Please log in."
 # YOUR CODE HERE
+
+
+
+logged_in = True
+is_admin = False
+if logged_in:
+   if is_admin:
+    print("Welcome, Admin!")
+   else:
+    print("Welcome, User!")
+else:
+    print("Please log in.")
+
 
 
 print("--- Section 1: If...Else done ---\n")
@@ -75,6 +138,23 @@ print("--- Section 1: If...Else done ---\n")
 # YOUR CODE HERE
 
 
+
+http_code = 404
+match http_code:
+    case 200:
+        print("OK")
+    case 301:
+        print("Moved Permanently")
+    case 404:
+        print("Not Found")
+    case 500:
+        print("Internal Server Error")
+    case _:
+        print("Unknown status code")
+
+
+
+
 # Q8. Create  command = "quit"
 #     Use match with  |  (OR) for multiple values per case:
 #       "quit" | "exit" | "q"  → "Exiting program..."
@@ -82,6 +162,20 @@ print("--- Section 1: If...Else done ---\n")
 #       "start"                → "Starting..."
 #       _                      → "Unknown command"
 # YOUR CODE HERE
+
+
+
+command = "quit"
+match command:
+    case "quit" | "exit" | "q":
+        print("Exiting program ...")
+    case "help" | "h":
+        print("Showing help...")
+    case "start":
+        print("Starting...")
+    case _:
+        print("Unknown command")
+
 
 
 print("--- Section 2: Match done ---\n")
@@ -95,14 +189,44 @@ print("--- Section 2: Match done ---\n")
 # YOUR CODE HERE
 
 
+
+
+i = 1
+while i <= 10:
+    print(i)
+    i += 1
+
+
+
+
 # Q10. Use a while loop to find the SUM of numbers 1 to 100.
 #      Print the final sum.  (should be 5050)
 # YOUR CODE HERE
 
 
+
+i = 1
+sum = 0
+while i <= 100:
+    sum += i
+    i += 1
+print("Sum:", sum) 
+
+
+
 # Q11. Use  continue  in a while loop to print numbers 1–10
 #      but SKIP number 5.
 # YOUR CODE HERE
+
+
+
+i = 0
+while i <= 10:
+    i += 1
+    if i == 5:
+        continue
+    print(i)
+
 
 
 # Q12. while True with break —
@@ -113,10 +237,31 @@ print("--- Section 2: Match done ---\n")
 # YOUR CODE HERE
 
 
+
+
+attempts = 0
+while True:
+    attempts += 1
+    if attempts == 3:
+        print("Too many attempts")
+        break
+    else:
+        print(f"Attempt{attempts}: wrong")
+
+
+
 # Q13. While loop with  else —
 #      Count from 1 to 5. When the loop ends naturally,
 #      the else block should print "Loop finished!"
 # YOUR CODE HERE
+
+
+i = 1
+while i <= 5:
+    print(i)
+    i += 1
+else:
+    print("Loop finished!")
 
 
 print("--- Section 3: While Loops done ---\n")
@@ -131,10 +276,19 @@ animals = ["cat", "dog", "rabbit", "parrot", "fish"]
 # YOUR CODE HERE
 
 
+
+for a in animals:
+    print(a)
+
+
+
 # Q15. Loop through  animals  using  enumerate()  and print:
 #      0 : cat
 #      1 : dog  ... etc.
 # YOUR CODE HERE
+
+
+
 
 
 # Q16. Use range() — three tasks in one question:
@@ -144,10 +298,25 @@ animals = ["cat", "dog", "rabbit", "parrot", "fish"]
 # YOUR CODE HERE
 
 
+
+for s in range(1,11):
+    print(s)
+for d in range(0, 51, 5):
+    print(d)
+for p in range(10, 0, -1):
+    print(p)
+
+
 # Q17. Use a for loop with range to print the multiplication table of 7:
 #      7 x 1 = 7
 #      7 x 2 = 14  ...  7 x 10 = 70
 # YOUR CODE HERE
+
+
+
+for s in range(1, 11):
+    print(f"7 x {s} = {7*s}")
+
 
 
 # Q18. Loop through numbers 1–20. Use  break  when you hit a number
@@ -156,9 +325,27 @@ animals = ["cat", "dog", "rabbit", "parrot", "fish"]
 # YOUR CODE HERE
 
 
+
+for n in range(1,21):
+    if n % 3 == 0 and n % 5 == 0:
+        print("Found it! Stopping.")
+        break
+    print(n)
+
+
+
+
 # Q19. Loop through numbers 1–15. Use  continue  to skip odd numbers.
 #      Print only even numbers.
 # YOUR CODE HERE
+
+
+
+for i in range(1,16):
+    if i % 2 != 0:
+        continue
+    print(i)
+
 
 
 # Q20. Loop through  animals. If the animal is "rabbit", use  pass.
@@ -167,12 +354,31 @@ animals = ["cat", "dog", "rabbit", "parrot", "fish"]
 # YOUR CODE HERE
 
 
+# pass is for loops when you have not decided what to put in the vacant place
+for animal in animals:
+    if animal == "rabbit":
+        pass
+    else:
+        print(animal)
+
+
+
 # Q21. for...else —
 #      Loop through  [4, 8, 12, 17, 20]  searching for an ODD number.
 #      If found: print "Odd found: X" and break.
 #      If loop finishes without breaking: else prints "No odd numbers found."
 numbers = [4, 8, 12, 17, 20]
 # YOUR CODE HERE
+
+
+
+for m in numbers:
+   if m % 2 != 0:
+     print("Odd Number: ",m)
+     break
+   
+else:
+     print("No odd numbers found.")
 
 
 # Q22. Nested loops — print this number pattern:
@@ -184,6 +390,15 @@ numbers = [4, 8, 12, 17, 20]
 # YOUR CODE HERE
 
 
+
+for n in range(1, 6):
+    for l in range(1, n + 1):   
+        print(l, end=" ")
+    print()
+
+
+
+
 # Q23. Nested loops — loop through this 2D grid and print every number:
 grid = [
     [1, 2, 3],
@@ -193,9 +408,21 @@ grid = [
 # YOUR CODE HERE
 
 
+for g in grid:
+    for r in g:
+        print(r)
+   
+
 # Q24. Loop through this dictionary and print each key + value:
 student = {"name": "Fajar", "city": "Lahore", "course": "Python", "year": 2026}
 # YOUR CODE HERE
+
+
+
+for key, value in student.items():
+    print(key, ":", value)
+    
+
 
 
 # Q25. List comprehension — two tasks:
@@ -205,6 +432,16 @@ student = {"name": "Fajar", "city": "Lahore", "course": "Python", "year": 2026}
 #         Expected: [6, 12, 18, 24]
 source = [3, 6, 9, 12, 15, 18, 21, 24]
 # YOUR CODE HERE
+
+
+
+squares = [s**2 for s in range(1,11)]
+print(squares)
+
+
+evens = [e for e in source if e % 2 == 0]
+print(evens)
+
 
 
 print("--- Section 4: For Loops done ---\n")
@@ -223,6 +460,20 @@ print("--- Section 4: For Loops done ---\n")
 # YOUR CODE HERE
 
 
+
+for i in range(1, 51):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print("the number")
+
+ 
+ 
+
 # PART B — Exam Statistics (no sum/min/max built-ins — use loops!)
 scores = [88, 45, 72, 91, 55, 63, 78, 49, 95, 60]
 # 1. Average score
@@ -231,6 +482,16 @@ scores = [88, 45, 72, 91, 55, 63, 78, 49, 95, 60]
 # 4. Count of students who passed (>= 50)
 # 5. Count of students who failed (< 50)
 # YOUR CODE HERE
+
+
+for s in scores:
+    if s >= 90:
+        print("Highest score")
+    elif s >= 70:
+        print("Average score")
+    elif s <= 50:
+        print("Lowest score")
+    
 
 
 print("=== All done! Great work Fajar! ===")
