@@ -44,6 +44,33 @@ print("\n")
 # Print numbers form 1 to 10
 i = 1
 while i <= 10:
-    i += 1
     print(i)
-    
+    i += 1
+
+
+
+
+# Sum of first N Natural numbers
+n = int(input("Enter a number: "))
+i = 1
+total = 0
+while i <= n:
+    total += i
+    i += 1
+print("Sum is:", total)
+
+
+
+
+# Print even numbers between 1 and 20
+i = 1
+while i <= 20:
+    if i % 2 == 0
+     print(i)
+    i += 1
+
+
+
+
+# Reverse a Number
+number = int(input("Enter a Number: "))
