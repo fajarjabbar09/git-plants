@@ -52,7 +52,7 @@ elif score >= 70:
 elif score >= 60:
     print("D")
 else:
-    print("E")
+    print("F")
 
 
 
@@ -68,7 +68,7 @@ if num > 0:
 elif num < 0:
     print("Negative")
 else:
-    ("Zero")
+    print("Zero")
 
 
 
@@ -221,7 +221,7 @@ print("Sum:", sum)
 
 
 i = 0
-while i <= 10:
+while i < 10:
     i += 1
     if i == 5:
         continue
@@ -243,10 +243,10 @@ attempts = 0
 while True:
     attempts += 1
     if attempts == 3:
-        print("Too many attempts")
+        print("Too many attempts.")
         break
     else:
-        print(f"Attempt{attempts}: wrong")
+        print(f"Attempt {attempts}: wrong")
 
 
 
@@ -288,7 +288,8 @@ for a in animals:
 # YOUR CODE HERE
 
 
-
+for index, animal in enumerate(animals):
+    print(index, ":", animal)
 
 
 # Q16. Use range() — three tasks in one question:
@@ -374,7 +375,7 @@ numbers = [4, 8, 12, 17, 20]
 
 for m in numbers:
    if m % 2 != 0:
-     print("Odd Number: ",m)
+     print("Odd found: ",m)
      break
    
 else:
@@ -469,7 +470,7 @@ for i in range(1, 51):
     elif i % 5 == 0:
         print("Buzz")
     else:
-        print("the number")
+        print(i)
 
  
  
@@ -484,13 +485,27 @@ scores = [88, 45, 72, 91, 55, 63, 78, 49, 95, 60]
 # YOUR CODE HERE
 
 
+total = 0
+highest = scores[0]
+lowest = scores[0]
+passed = 0
+failed = 0
 for s in scores:
-    if s >= 90:
-        print("Highest score")
-    elif s >= 70:
-        print("Average score")
-    elif s <= 50:
-        print("Lowest score")
+    total += s
+    if s > highest:
+        highest = s
+    if s < lowest:
+        lowest = s
+    if s >= 50:
+        passed += 1
+    else:
+        passed += 1
+print("Average:", total / len(scores))
+print("Highest Score:", highest)
+print("Lowest Score:" , lowest)
+print("Passed:", passed)
+print("Failed:",failed)
+
     
 
 
