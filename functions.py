@@ -454,6 +454,32 @@ print("Global: ", x)
 # LETS YOU ADD EXTRA BEHAVIOUR TO A FUNCTION 
 # WITHOUT CHANGING FUNCTIONS CODE
 # TAKES ANOTHER FUNCTION AS INPUT AND RETURNS A NEW FUNCTION
+# PASS BASE FUNCTION AS AN ARGUMENT TO THE DECORATOR FUNCTION
+
+
+
+
+# STEP 2: DEFINE DECORATOR FUNCTION
+def add_sprinkle(func):           # STEP 3: GOING TO HAVE ONE PARAMETER
+    def wrapper(*args,**kwargs):      # STEP 4: PASS AN INNER FUNCTION TO OUR DECORATOR FUNCTION
+          print("*you add sprinkles*")
+          func(*args,**kwargs)       # STEP 5: CALL THE PARAMETER (FUNCTION) THAT WE RECEIVE
+    return wrapper     # STEP 6: RETURN THE ENTIRE FUNCTION
+
+def add_fudge(func):
+    def wrapper(*args,**kwargs):
+        print("*You add fudge*")
+        func(*args,**kwargs)
+    return wrapper
+    
+@add_fudge
+@add_sprinkle   # STEP 7: APPLYING A DECORATOR TO THE BASE FUNCTION
+# STEP 1: START WITH THE BASE FUNCTION
+def get_icecream(flavor):
+    print(f"Here is your {flavor} ice cream")
+
+get_icecream("vanilla")
+
 
 
 
@@ -474,25 +500,12 @@ def myfunction():
 
 print(myfunction())   # it is now actually myinner
 
-
-
 @changecase
 def otherfunction():
     return "I am good !"
 
 print(otherfunction())
 
-
-# Arguments in the decorated function
-def changecase(func):
-    def inner(x):
-        return func(x).upper()
-    return inner
-@changecase
-def myfunct(name):
-    return "hello " + name
-
-print(myfunct("john"))
 
 
 
@@ -516,94 +529,47 @@ print(myfunction())
 
 
 
-def hello(to = "world"):           # def function(parameter = "default"):
-    print("hello,", to)     # adding argument
 
 
-name = input("What's your name? ")
-hello(name)          # calling function and passing name variable as an argument
+def changecase(func):
+    def inner(x):
+        return func(x).upper()
+    return inner
+@changecase
+def myfunct(name):
+    return "hello " + name
 
-
-
-
-
-
-# ======================= LAMBDA FUNCTION ==========================
-# ANONYMUS FUNCTION
-# lambda arguments : expression
-# ne use function
-#sort(), map()
-
-x = lambda a : a + 20
-print(x(5))
+print(myfunct("john"))
 
 
 
-d = lambda b, c : b * c
-print(d(3,8))
-
-
-def myfun(n):
-    return lambda a : a * n
-mydoubler = myfun(3)
-print(mydoubler(18))
-
-
-def myfunc(n):
-    return lambda a : a * n
-mytripler = myfunc(3)
-print(mytripler(6))
+# FUNCTIONS SHOULD DO A SINGLE RESPOSIBILITY TO MAKE THE CODE REUSABLE
+# DECORATOR'S PURPOSE IS TO TIME THE EXECUTION OF THE FUNCTION
 
 
 
-# LAMBDA WITH BUILT IN FUNCTIONS
-#
+import time
+def  timer_dec(base_fn):           # DECORATOR TAKE BASE FUNCTION AS AN INPUT
+    def enhanced_fn(*args):   # packs positional arguments into args tuple
+        start_time = time.time()
+        base_fn(*args)    # unpacks tuple with individual arguments
+        end_time = time.time()
+        print(f"Task time: {end_time - start_time} seconds")
+    return enhanced_fn       # TELL THE DECORATOR TO RETURN THE ENHANCED FUNCTION
 
-# Double all the numbers ina list
+@timer_dec
+def brew_tea(tea_type, steep_time):
+    print(f"Brewing {tea_type}Tea....")
+    time.sleep(steep_time)
+    print("Tea is ready! ")
 
-numbers = [1, 2, 3, 4, 5]
-doubled = list(map(lambda x : x * 2,numbers))
-print(doubled)
-
-
-
-numberss = [1,2, 3, 4, 5, 6, 7, 8]
-odd_numbers = list(filter(lambda x : x % 2 != 0,numbers))
-print(odd_numbers)
-
-
-
-students = [("Emil",25), ("Tobias", 22), ("Tom", 23)]
-sorted_students = sorted(students, key = lambda x : x[1])
-print(sorted_students)
-
-
-# ================= RECURSION =======================
-# Every recursive function must have two parts:
-# base case - condition that stops the recursion
-# recursive case  - function calling itself with a modified argument
-
-def countdown(n):
-    if n <= 0:
-        print("Done!")
-    else:
-        print(n)
-        countdown(n - 1)
-countdown(8) 
+@timer_dec
+def make_matcha():
+    print(f"Making Matcha...")
+    time.sleep(1)
+    print("Matcha is ready!")
+    
+brew_tea("green", 1)
+make_matcha()
 
 
-def factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
-print(factorial(5))
-
-
-# =-=-=-=-=-=-=-=-=-=-=- fibonacci sequence =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-def fibonacci(n):
-    if n <= 1:
-        return n 
-    else:
-        return fibonacci(n - 1) + fibonacci(n - 2)
-print(fibonacci(7))
