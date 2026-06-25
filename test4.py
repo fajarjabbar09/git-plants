@@ -21,6 +21,11 @@
 # YOUR CODE HERE
 
 
+def greet(name):
+    print(f"Hello, {name}!")
+greet("Fajar")
+
+
 
 # Q2. Define a function  add(a, b)  that RETURNS the sum.
 #     Print the result of add(7, 5).
@@ -28,10 +33,21 @@
 
 
 
+def add (a,b):
+    return a + b
+print(add(7, 5))
+
+
+
 # Q3. Define a function  power(base, exp=2)  with a default argument.
 #     Print power(5)  and  power(2, 3).
 # YOUR CODE HERE
 
+
+def power(base, exp = 2):
+    return base ** exp
+print(power(5))
+print(power(2, 3))
 
 
 # Q4. Define a function  total(*numbers)  that uses *args
@@ -41,10 +57,28 @@
 
 
 
+def total(*numbers):
+    total = 0
+    for num in numbers:
+         total += num
+    return total
+print(total(1, 2, 3, 4))
+
+
+
+
 # Q5. Define a function  describe(**info)  that uses **kwargs
 #     and prints each key and value.
 #     Call describe(name="Fajar", role="Intern").
 # YOUR CODE HERE
+
+
+
+def describe(**info):
+    for key, value in info.items():
+        print(key, value)
+describe(name = "Fajar", role = "Intern")
+
 
 
 
@@ -57,13 +91,29 @@
 
 
 
+five = range(1, 6)
+print(list(five))
+
+
+
 # Q7. Use range() with a step to print even numbers from 2 to 10.
 # YOUR CODE HERE
 
 
 
+even = range(2, 10, 2)
+print(list(even))
+
+
+
 # Q8. Use range() to print 10 down to 1 (countdown).
 # YOUR CODE HERE
+
+
+
+countdown = range(10, 1)
+for n in countdown:
+    print(list(n)) 
 
 
 
@@ -77,8 +127,18 @@
 
 
 
+fruits = ["apple", "banana", "cherry"]
+print(len(fruits))
+
+
+
 # Q10. Append "orange" to the array, then print the full array.
 # YOUR CODE HERE
+
+
+
+fruits.append("orange")
+print(fruits)
 
 
 
@@ -86,9 +146,16 @@
 # YOUR CODE HERE
 
 
+for f in fruits:
+    print(f)
+
 
 # Q12. Remove "banana" from the array and print the result.
 # YOUR CODE HERE
+
+
+fruits.remove("banana")
+print(fruits)
 
 
 
@@ -102,8 +169,22 @@
 
 
 
+tuple = ("a", "b", "c")
+it = iter(tuple)
+print(next(it))
+print(next(it))
+
+
+
 # Q14. Loop through the iterable [10, 20, 30] using a for loop.
 # YOUR CODE HERE
+
+
+
+aloop = [10, 20, 30]
+for a in aloop:
+    print(a) 
+
 
 
 
@@ -116,10 +197,19 @@
 # YOUR CODE HERE
 
 
+import random
+print(random.randint(1, 100))
+
+
 
 # Q16. Import only the  sqrt  function from the math module
 #      and print sqrt(81).
 # YOUR CODE HERE
+
+
+
+from math import sqrt
+print(sqrt(81))
 
 
 
@@ -132,13 +222,31 @@
 
 
 
+import datetime
+date = datetime.datetime.now()
+print(date)
+
+
+
 # Q18. Print today's year only.
 # YOUR CODE HERE
 
 
 
+date = datetime.datetime.now()
+print(date.strftime("%Y"))
+
+
+
 # Q19. Format the current date as "DD/MM/YYYY" using strftime.
 # YOUR CODE HERE
+
+
+
+import datetime
+date = datetime.datetime(2026, 6, 24)
+date = datetime.datetime.now()
+print(date.strftime("%B"))
 
 
 
@@ -152,13 +260,29 @@
 
 
 
+value = (3, 19, 7)
+print(max(value))
+print(min(value))
+
+
 # Q21. Print the absolute value of -42 using abs().
 # YOUR CODE HERE
 
 
 
+forty_two = -42
+print(abs(forty_two))
+
+
+
 # Q22. Using the math module, print  math.pi  and  math.ceil(4.2).
 # YOUR CODE HERE
+
+
+
+import math
+print(math.pi)
+print(math.ceil(4.2))
 
 
 
@@ -171,11 +295,24 @@
 # YOUR CODE HERE
 
 
+import json
+person = {"name": "Fajar", "age": 21, "intern" : True}
+P = json.dumps(person)
+print(P)
+
+
 
 # Q24. Convert this JSON string back into a Python dict and
 #      print the value of "city":
 #      data = '{"city": "Lahore", "population": 11000000}'
 # YOUR CODE HERE
+
+
+
+import json
+data = '{"city": "Lahore", "popultion": 11000000}'
+python_dic = json.loads(data)
+print(python_dic["city"])
 
 
 
@@ -189,9 +326,22 @@
 
 
 
+import re
+text = "The rain in Spain"
+r = re.search("rain",text)
+print(r is not None)
+
+
+
 # Q26. Use re.findall() to find all digits in "abc123def456"
 #      and print the result.
 # YOUR CODE HERE
+
+
+
+import re
+digit = "abc123def456"
+
 
 
 
@@ -217,12 +367,27 @@
 #      "Cannot divide by zero!" if a ZeroDivisionError happens.
 # YOUR CODE HERE
 
+#while True:
+ #   try:
 
+
+  #  except ZeroDivisionError:
+   #     print("Cannot divide by zero")
 
 # Q30. Try to convert  int("hello")  inside try/except.
 #      Catch the ValueError and print "Not a number".
 #      Add a  finally  block that prints "Done".
 # YOUR CODE HERE
+
+
+
+#while True:
+ #   try:
+   #     int("hello")
+  #      break
+    #except ValueError:
+     #   print("Not a number")
+#print("Done")
 
 
 
@@ -234,11 +399,20 @@
 #      using variables name and age.
 # YOUR CODE HERE
 
+name = "Fajar"
+age = 21
+print(f"{name} is {age} years old")
 
 
 # Q32. Use the .format() method to print:
 #      "Price: 50 dollars"  using a variable price = 50.
 # YOUR CODE HERE
+
+
+
+price = 50
+pr = "Price: {} dollars".format(price)
+print(pr)
 
 
 
@@ -259,6 +433,12 @@
 
 
 
+result = None
+if result == None:
+    print("No value yet")
+
+
+
 # ──────────────────────────────────────────────────────────
 # SECTION 14 — User Input
 # ──────────────────────────────────────────────────────────
@@ -267,11 +447,18 @@
 #      (You may comment this out if running non-interactively.)
 # YOUR CODE HERE
 
+name = input("Name:")
+print("Hello", name)
 
 
 # Q36. Ask the user for a number, convert it to int,
 #      and print the number multiplied by 2.
 # YOUR CODE HERE
+
+
+
+number = int(input("Give me a number: "))
+print(number * 2)
 
 
 
@@ -301,3 +488,13 @@
 #        - but uses try/except to return None if b is 0
 #      Print safe_divide(10, 2) and safe_divide(10, 0).
 # YOUR CODE HERE
+
+
+
+def safe_divide(a, b):
+    return a, b
+try:
+    if b == 0:
+        print(None)
+except:
+    pass
