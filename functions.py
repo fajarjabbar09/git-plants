@@ -27,6 +27,10 @@ print(farenheit_to_celsius(39))
 
 
 
+def make_pizza(topping):
+    return "here is your " + "pizza!"
+print(make_pizza("cheese"))
+
 def get_greeting():
     return "hello from a function"
 message = get_greeting()
@@ -101,6 +105,34 @@ my_funct("Amelia")
 my_funct()
 my_funct("Salar")
 
+
+
+
+
+def make_coffee(size = "medium", sugar = 1):
+    return f"Here is your {size} coffee with {sugar} spoon(s) of sugar"
+
+# Use the defaults
+print(make_coffee())
+
+# Chang one thing
+print(make_coffee(size="large")) 
+
+# change EvERYTHING
+print(make_coffee(size="small", sugar=2))
+
+
+
+def report(name, subject = "Math", passed= True):
+    status = "PASSED" if passed else "FAILED"
+    return f"{name} | {passed} | {status}"
+print(report("Ali"))
+# Ali | Math | PASSED
+
+print(report("Sara", subject="Science"))
+# Sara | Science | PASSED
+
+print(report("Zain", subject="History",passed= False))
 
 
 def power_on(device = "Computer"):
@@ -292,12 +324,30 @@ print(my_max(23, 34, 82, 63, 20))
 
 
 
+def pizza(*toppings):
+    print("Your topping:")
+    for topping in toppings:
+        print(" tick ", topping)
+
+pizza("cheese", "pepperoni", "mushrooms", "olives", "sausages")
+
+
+
 
 # **Kwargs: a dictionary of arguments
 
 def my_names(**kids):
     print("his last name is " + kids["lname"])
 my_names(fname = "taha", lname = "jabbar")
+
+
+
+
+def order(**details):
+    print("Your order details:")
+    for label,value in details.items():
+        print(f"{label}:{value}")
+order(size="large", crust="thin", drink= "coke")
 
 
 
@@ -330,6 +380,18 @@ def my_library(title, *args, **kwargs):
 
 my_library("Userinfo", "emil", "tobias", age = 33, city = "oslo")
 
+
+
+
+def mega_order(name, *topping, **details):
+    print(f"\n Customer: {name}")
+    print("Toppings:")
+    for t in topping:
+        print(f" tick  {t}")
+    print("Extra details:")
+    for label, value in details.items():
+        print(f"{label}: {value}")
+mega_order("Ali", "cheese", "chicken", size= "small", crust= "thin")
 
 
 
@@ -573,3 +635,98 @@ brew_tea("green", 1)
 make_matcha()
 
 
+
+
+# =-=-=-=-=-=-=-=LAMBDA FUNCTIONS=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--
+#  FOR ONE TIME USE ONLY
+double = lambda x: x * 2
+add = lambda x, y: x + y
+max_value = lambda x, y: x if x > y else y
+
+print(max_value(8, 2))
+print(add(4, 7))
+print(double(2))
+
+
+
+double = lambda n : n * 2
+print(double(5))
+
+
+
+# Sorting the list
+students = [("Ali", 60), ("Sara", 87),("Zain", 76)]
+# sort by score
+students.sort(key=lambda student: student[1])
+
+print(students)
+
+
+
+# MAP -- Do something to every item in the list
+
+numbers = [1, 2, 3, 4, 5]
+doubled = list(map(lambda n: n * 2,numbers))
+print(doubled)
+
+
+numbers = [1, 2, 3, 4, 5, 6, 7]
+evens = list(filter(lambda n :n % 2 == 0, numbers))
+print(evens)
+
+
+
+
+
+
+
+
+# =============   STUDENT     REPORT    GENERATOR ========================
+
+
+students = []
+def add_student(name, *grades, **info):
+    student = {
+        "name": name,
+        "grades": grades,
+        "extra": info
+        }
+    students.append(student)
+    print(f"{name} added to classroom!")
+add_student("Ali", 85, 90, 78, city= "Lahore", age = 18)
+add_student("Sara", 65, 98, 77, city= "Islamabad", age= 17)
+add_student("David", 87, 66, 100, city= "NYC", age = 19)
+
+def show_report(student, subject= "General"):
+    name = student["name"]
+    grades = student["grades"]
+    extra = student["extra"]
+
+    average = sum(grades)/ len(grades)
+    passed = "PASSED" if average >= 70 else "FAILED"
+    print(f"""
+
+=================================
+          REPORT CARD
+=================================
+    Name    : {name}
+    Subject : {subject}
+    Grades  : {grades}
+    Average : {average:.1f}
+    Status  : {passed}
+    City    : {extra.get("city", "Unknown")} 
+    Age     : {extra.get("age", "Unknown")} 
+=================================
+ """)
+show_report(students[0])    
+
+
+
+def rank_students():
+    ranked = sorted(students, key= lambda s: sum(s["grades"])/ len(s["grades"]),reverse= True)
+    print("CLASSROOM RANKERS:")
+    print("=============================")
+    for i , student in enumerate(ranked):
+        avg = sum(student["grades"])/ len(student["grades"])
+        print(f" #{i+1} {student['name']} - {avg:.1f}")
+rank_students()
