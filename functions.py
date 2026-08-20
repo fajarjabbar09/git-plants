@@ -677,27 +677,23 @@ print(evens)
 
 
 
-
-
-
-
 # =============   STUDENT     REPORT    GENERATOR ========================
 
 
-students = []
+students = []               #  CLASSROOM - empty list to  store all students
 def add_student(name, *grades, **info):
-    student = {
+    student = {           # A dictionary - students file
         "name": name,
         "grades": grades,
         "extra": info
         }
-    students.append(student)
-    print(f"{name} added to classroom!")
+    students.append(student)    # pushes new students file info into the classroom
+    print(f"{name} added to classroom!")     # Confirmation message 
 add_student("Ali", 85, 90, 78, city= "Lahore", age = 18)
 add_student("Sara", 65, 98, 77, city= "Islamabad", age= 17)
 add_student("David", 87, 66, 100, city= "NYC", age = 19)
 
-def show_report(student, subject= "General"):
+def show_report(student, subject= "General"):   # passing in one students file 
     name = student["name"]
     grades = student["grades"]
     extra = student["extra"]
